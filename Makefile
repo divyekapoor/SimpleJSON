@@ -23,7 +23,7 @@ obj/%.o:	src/%.cpp $(HEADERS)
 		$(CC) $(CFLAGS) $(@:obj/%.o=src/%.cpp) -o $@
 
 test: $(EXECUTABLE)
-		./JSONDemo -t
+		./$(EXECUTABLE) -t
 
 clean:
 		rm -f $(OBJECTS) $(EXECUTABLE)
