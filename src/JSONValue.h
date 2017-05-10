@@ -40,13 +40,13 @@ class JSONValue
 
 	public:
 		JSONValue(/*NULL*/);
-		JSONValue(const wchar_t *m_char_value);
-		JSONValue(const std::wstring &m_string_value);
-		JSONValue(bool m_bool_value);
-		JSONValue(double m_number_value);
-		JSONValue(int m_integer_value);
-		JSONValue(const JSONArray &m_array_value);
-		JSONValue(const JSONObject &m_object_value);
+		explicit JSONValue(const wchar_t *m_char_value);
+		explicit JSONValue(const std::wstring &m_string_value);
+		explicit JSONValue(bool m_bool_value);
+		explicit JSONValue(double m_number_value);
+		explicit JSONValue(int m_integer_value);
+		explicit JSONValue(const JSONArray &m_array_value);
+		explicit JSONValue(const JSONObject &m_object_value);
 		JSONValue(const JSONValue &m_source);
 		~JSONValue();
 
