@@ -14,14 +14,18 @@ OBJECTS=$(SOURCES:src/%.cpp=obj/%.o)
 EXECUTABLE=JSONDemo
 
 all:	$(SOURCES) $(EXECUTABLE)
-	
-$(EXECUTABLE):	$(OBJECTS) 
+
+$(EXECUTABLE):	$(OBJECTS)
 		$(CC) $(LFLAGS) $(OBJECTS) -o $@
 
 obj/%.o:	src/%.cpp $(HEADERS)
 		@test -d $(@D) || mkdir -p $(@D)
 		$(CC) $(CFLAGS) $(@:obj/%.o=src/%.cpp) -o $@
 
+test: $(EXECUTABLE)
+	./JSONDemo -t
+
 clean:
 		rm -f $(OBJECTS) $(EXECUTABLE)
 
+.PHONY: clean test
